@@ -1,4 +1,4 @@
-import torrent_edit
+from torrent_edit import edit as edit_torrent
 import re
 # import os
 # from sys import argv
@@ -20,6 +20,6 @@ with open(trackers_file, 'r') as f:
     for urls in trackers:
         tracker_list.append(re.sub('\n', '', urls))
 
-torrent_edit(tracker_list, torrents_list)
+edit_torrent(tracker_list, torrents_list)
 
 filecopy(torrent_path, config['upload_dir'])
