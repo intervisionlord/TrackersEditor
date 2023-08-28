@@ -1,8 +1,7 @@
-# from subprocess import call as call_proc
 import re
-from subprocess import run as runcommand
 import os
 from sys import argv
+import torrent_edit
 
 trackers_file = 'trackers.txt'
 torrents_dir = argv[1]
@@ -20,13 +19,15 @@ for files in os.listdir(torrents_dir):
     # print(f'{os.path.abspath(torrents_dir)}\{os.path.basename(files)}')
 print(torrents_list)
 
+torrent_edit(torrents_list, tracker_list)
+
 # print(torrents_list)
 
-for torrent in torrents_list:
-    for url in tracker_list:
-        print(f'trying to edit {torrent}')
-        runcommand([
-            'transmission-edit',
-            f'-a {url}',
-            f'{torrent}',
-            ])
+# for torrent in torrents_list:
+#     for url in tracker_list:
+#         print(f'trying to edit {torrent}')
+#         runcommand([
+#             'transmission-edit',
+#             f'-a {url}',
+#             f'{torrent}',
+#             ])
