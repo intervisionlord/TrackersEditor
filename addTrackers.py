@@ -1,7 +1,7 @@
 import re
 import os
 from sys import argv
-import torrent_edit
+from torrent_edit import edit as edit_torrent
 
 trackers_file = 'trackers.txt'
 torrents_dir = argv[1]
@@ -15,19 +15,5 @@ with open(trackers_file, 'r') as f:
 
 for files in os.listdir(torrents_dir):
     torrents_list.append(os.path.join(os.path.abspath(torrents_dir), os.path.basename(files)))
-    # print(os.path.abspath(f'{torrents_dir}\{files}'))
-    # print(f'{os.path.abspath(torrents_dir)}\{os.path.basename(files)}')
-print(torrents_list)
 
-torrent_edit(torrents_list, tracker_list)
-
-# print(torrents_list)
-
-# for torrent in torrents_list:
-#     for url in tracker_list:
-#         print(f'trying to edit {torrent}')
-#         runcommand([
-#             'transmission-edit',
-#             f'-a {url}',
-#             f'{torrent}',
-#             ])
+edit_torrent(torrents_list, tracker_list)

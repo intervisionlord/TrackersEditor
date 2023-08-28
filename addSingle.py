@@ -1,6 +1,5 @@
 from torrent_edit import edit as edit_torrent
 import re
-# import os
 # from sys import argv
 import torrent_edit
 from shutil import copy as filecopy
@@ -22,4 +21,5 @@ with open(trackers_file, 'r') as f:
 
 edit_torrent(torrents_list, tracker_list)
 
+print(f'Copying {torrent_path} to {config["upload_dir"]}')
 filecopy(torrent_path, config['upload_dir'])
