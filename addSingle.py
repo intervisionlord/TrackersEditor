@@ -20,6 +20,6 @@ with open(trackers_file, 'r') as f:
     for urls in trackers:
         tracker_list.append(re.sub('\n', '', urls))
 
-edit_torrent(tracker_list, torrents_list)
+edit_torrent(torrents_list, tracker_list)
 
 filecopy(torrent_path, config['upload_dir'])
