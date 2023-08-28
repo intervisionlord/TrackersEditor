@@ -4,7 +4,7 @@ import re
 # from sys import argv
 import torrent_edit
 from shutil import copy as filecopy
-from yaml import load as yamlload
+from yaml import full_load as yamlload
 
 trackers_file = 'trackers.txt'
 # torrents_dir = argv[1]
