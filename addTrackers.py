@@ -15,13 +15,14 @@ with open(trackers_file, 'r') as f:
         tracker_list.append(re.sub('\n', '', urls))
 
 for files in os.listdir(torrents_dir):
-    torrents_list.append(os.path.abspath(files))
+    torrents_list.append(os.path.abspath(f'{torrents_dir}\{files}'))
+    # print(os.path.abspath(f'{torrents_dir}\{files}'))
 
 print(torrents_list)
 
 for torrent in torrents_list:
     for url in tracker_list:
-        print(f'trying to edit {(torrent)}')
+        print(f'trying to edit {torrent}')
         runcommand([
             'transmission-edit',
             f'-a {url}',
